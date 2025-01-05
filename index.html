@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RickStudio's Store</title>
+
+    <style>
+        /* General styles */
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(45deg, #000dff, #fb91ff);
+            background-size: 150% 150%;
+        }
+
+
+        /* Title Styles */
+        .h1 {
+            font-family: 'Orbitron', sans-serif;
+            color: #fff;
+            font-size: 4rem;
+            text-align: center;
+            margin: 40px 0 20px;
+            /* Added margin for spacing */
+            text-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        /* Fade-in animation for the title */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .p1 {
+            font-family: 'Roboto', sans-serif;
+            text-align: center;
+            margin: 10px 0;
+            color: #fff;
+            font-size: 1.5rem;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Navigation Bar */
+        nav {
+            position: static;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.35);
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            z-index: 1000;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.2rem;
+            padding: 0 15px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #37ff00;
+        }
+
+        /* Game container */
+        .game-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+            animation: slideIn 2s ease;
+            margin-top: 150px;
+        }
+
+
+        .game {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 15px 0;
+        }
+
+        .game p {
+            margin: 0 20px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 1.3rem;
+            color: #fff;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+            transition: transform 0.2s ease;
+        }
+
+        .game p:hover {
+            transform: scale(1.1);
+        }
+
+        /* Button styles */
+        .btn {
+            position: relative;
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #fff;
+            text-transform: uppercase;
+            text-decoration: none;
+            border: none;
+            border-radius: 50px;
+            background: linear-gradient(45deg, #00bcd4, hsl(135, 100%, 50%));
+            cursor: pointer;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+            margin: 10px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Hover effect with glowing and smooth animation */
+        .btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+            background: linear-gradient(45deg, #00bcd4, hsl(135, 100%, 50%));
+        }
+
+        /* Shiny border effect */
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #04eeff, hsl(283, 100%, 50%));
+            transition: left 0.4s ease-out;
+        }
+
+        .btn:hover::before {
+            left: 0;
+        }
+
+        .btn span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* App download section */
+        .app-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 30px;
+            animation: fadeIn 1s ease-in-out;
+
+        }
+
+        .app-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 10px;
+            width: 250px;
+            text-align: center;
+            transition: transform 0.3s ease, background 0.3s ease;
+            animation: fadeIn 1s ease-in-out;
+
+        }
+
+        .app-item:hover {
+            transform: translateY(-10px);
+            background: rgba(58, 58, 58, 0.25);
+        }
+
+        /* App Image */
+        .app-item img {
+            width: 120px;
+            height: 120px;
+            object-fit: contain;
+            border-radius: 10px;
+            margin-bottom: 15px;
+            transition: transform 0.3s ease;
+        }
+
+        .app-item img:hover {
+            transform: scale(1.05);
+        }
+
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(-100%);
+                opacity: 0;
+            }
+
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        @keyframes boxFade {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .h1 {
+                font-size: 3rem;
+            }
+
+            .btn {
+                font-size: 1rem;
+                padding: 12px 30px;
+            }
+
+            .game p {
+                font-size: 1.1rem;
+            }
+
+            .app-item {
+                width: 225px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .h1 {
+                font-size: 2.5rem;
+            }
+
+            .p1 {
+                font-size: 1.2rem;
+            }
+
+            .btn {
+                font-size: 0.9rem;
+                padding: 10px 25px;
+            }
+
+            .game p {
+                font-size: 1rem;
+            }
+
+            .app-item {
+                width: 250px;
+            }
+        }
+
+        .new-box {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /* Centers the box */
+            background: #00bbd400;
+            padding: 20px 50px;
+            border-radius: 15px;
+            text-align: center;
+            color: rgba(255, 255, 255, 0);
+            font-size: 1.5rem;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0);
+            animation: boxFade 0.5s ease-in-out;
+            z-index: 1000;
+        }
+
+        /* Footer Styles */
+        .footer {
+            position: static;
+            bottom: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.35);
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 1rem;
+            font-family: 'Roboto', sans-serif;
+            box-shadow: 0 -2px 6px rgba(0, 0, 0, .25);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        /* Footer Text Styling */
+        .footer p {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Responsive Design for Footer */
+        @media (max-width: 768px) {
+            .footer {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+
+    <script>
+        // Function to handle the delayed page redirection
+        function handleRedirect(link) {
+            // Show a loading notification
+            const newBox = document.createElement('div');
+            newBox.className = 'new-box';
+            document.body.appendChild(newBox);
+
+            // Delay the redirection by 3 seconds
+            setTimeout(() => {
+                // After 3 seconds, remove the notification and redirect to the new page
+                document.body.removeChild(newBox);
+                window.location.href = link; // Redirect to the given link
+            }, 500); // 500ms = .5sec
+        }
+    </script>
+
+</head>
+
+<body>
+    <h1 class="h1">RickStudio's Store</h1>
+    <nav>
+        <a style="color: #37ff00;">Home</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+    <p class="p1" style="animation: fadeIn 1s ease-in-out;">Download Your Favorite Apps & Games Now</p>
+
+    <div class="app-list">
+
+        <div class="app-item">
+            <img src="MR. Racer Logo.png" alt="Game 1 Image">
+            <b>
+                <p>Mr. Racer</p>
+            </b>
+            <p style="font-size: .75rem;">Get ready to rev your engines in this fast-paced 2D car racing game!</p>
+            <button class="btn" onclick="handleRedirect('https://1drv.ms/u/c/5cdcb6b4bd8aec4c/EXOFugd3iydHtMSnsd4eOWwBkfDPqBsFAQKIb1icodReBg?e=2W6hYj')">
+                <span> Download APK </span>
+            </button>
+        </div>
+
+        <div class="app-item">
+            <img src="logo tic tac toe.jpg" alt="Game 1 Image">
+            <b>
+                <p>Tic Tac Toe</p>
+            </b>
+            <p style="font-size: .75rem;">Tic Tac Toe is a classic and simple two-player game!</p>
+            <button class="btn" onclick="handleRedirect('https://1drv.ms/u/c/5cdcb6b4bd8aec4c/EbLliIm7YxBLqUxLIdwclvQBI2n2YHH3YCqE81RQUj5pBg?e=4f5Uml')">
+                <span> Download APK </span>
+            </button>
+        </div>
+
+        <div class="app-item">
+            <img src="screen painter.png" alt="Game 1 Image">
+            <b>
+                <p>Screen Painter</p>
+            </b>
+            <p style="font-size: .75rem;">Transform your device with stunning wallpapers!</p>
+            <button class="btn" onclick="handleRedirect('https://1drv.ms/u/c/5cdcb6b4bd8aec4c/EWBxGA0q95NBtMX2MmftytQBzRwzEalSFKfsEh38m8Y5ng?e=icQBZg')">
+                <span> Download APK </span>
+            </button>
+        </div>
+
+        <div class="app-item">
+            <img src="numbers.webp" alt="Game 1 Image">
+            <b>
+                <p>NS Converter</p>
+            </b>
+            <p style="font-size: .75rem;">Easily convert numbers between different numeral systems with this simple yet powerful app!</p>
+            <button class="btn" onclick="handleRedirect('https://1drv.ms/u/c/5cdcb6b4bd8aec4c/ERz1l_-0quJJtvjPg5RrbakBwZf7WtATQ_LhiHzWO6bhbw?e=NibbgV')">
+                <span> Download APK </span>
+            </button>
+        </div>
+
+        <div class="app-item">
+            <img src="pattern.webp" alt="Game 1 Image">
+            <b>
+                <p>Patterns</p>
+            </b>
+            <p style="font-size: .75rem;">Discover a world of stunning designs!</p>
+            <button class="btn" onclick="handleRedirect('https://1drv.ms/u/c/5cdcb6b4bd8aec4c/EX0r08uJKadOkaZDFU21yNsB4g-Xbs03LVLQnNNpwctUXg?e=lCTQiI')">
+                <span> Download APK </span>
+            </button>
+        </div>
+
+    </div>
+    <footer class="footer">
+        <p>&copy; 2025 Company | All rights reserved | By Rick</p>
+    </footer>
+    
+</body>
+</html>

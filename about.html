@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RickStudio's Store</title>
+    <style>
+        /* General styles */
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(45deg, #1500ff, #c46dff);
+            background-size: 400% 400%;
+        }
+
+
+        /* Title Styles */
+        .h1 {
+            font-family: 'Orbitron', sans-serif;
+            color: #fff;
+            font-size: 4rem;
+            text-align: center;
+            margin: 40px 0 20px;
+            /* Added margin for spacing */
+            text-shadow: 0 4px 6px rgba(0, 0, 0, 0.4);
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        /* Fade-in animation for the title */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
+        }
+
+        .p1 {
+            font-family: 'Roboto', sans-serif;
+            text-align: center;
+            margin: 10px 0;
+            color: #fff;
+            font-size: 1.5rem;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Navigation Bar */
+        nav {
+            position: static;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.35);
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+            z-index: 1000;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            font-size: 1.2rem;
+            padding: 0 15px;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #37ff00;
+        }
+
+
+        /* Media Queries */
+        @media (max-width: 768px) {
+            .h1 {
+                font-size: 3rem;
+            }
+
+            .btn {
+                font-size: 1rem;
+                padding: 12px 30px;
+            }
+
+            .game p {
+                font-size: 1.1rem;
+            }
+
+            .app-item {
+                width: 225px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .h1 {
+                font-size: 2.5rem;
+            }
+
+            .p1 {
+                font-size: 1.2rem;
+            }
+
+            .btn {
+                font-size: 0.9rem;
+                padding: 10px 25px;
+            }
+
+            .game p {
+                font-size: 1rem;
+            }
+
+            .app-item {
+                width: 250px;
+            }
+        }
+        /* Footer Styles */
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.35);
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            font-size: 1rem;
+            font-family: 'Roboto', sans-serif;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        /* Footer Text Styling */
+        .footer p {
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Responsive Design for Footer */
+        @media (max-width: 768px) {
+            .footer {
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .footer {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <h1 class="h1">RickStudio's Store</h1>
+    <nav>
+        <a href="index.html">Home</a>
+        <a style="color: #37ff00;">About</a>
+        <a href="contact.html">Contact</a>
+    </nav>
+    <p class="p1" style="animation: fadeIn 1s ease-in-out;font-family: 'Orbitron', sans-serif;text-align: center;font-size: 1rem;padding: 10px;padding-left: 25px;padding-right: 25px;font-size: 2rem;">About</p>
+    <p class="p1" style="animation: fadeIn 1s ease-in-out;font-family: 'Orbitron', sans-serif;text-align: center;font-size: 1rem;padding: 10px;padding-left: 25px;padding-right: 25px;">I am Rick, welcome to Rick Studio! We are a passionate team of developers dedicated to creating engaging and fun mobile games for all ages. Our goal is to provide exciting, high-quality games that offer a great user experience. Whether you're looking for a casual game to pass the time or something more challenging, our collection is designed to entertain and bring joy to your mobile device. Stay tuned for more games, and we appreciate your support in making Rick Studio a thriving hub for gaming enthusiasts. Thank you for being part of our journey!</p>
+    <p class="p1" style="animation: fadeIn 1s ease-in-out;font-family: 'Orbitron', sans-serif;text-align: center;font-size: 1rem;padding: 10px;padding-left: 25px;padding-right: 25px;">How to Download: After clicking "Download APK" button, you will be redirected to OneDrive. Then, you need to tap on the "Download" button to start the download. If the download button is not visible, please refresh the tab.</p>
+
+    <footer class="footer">
+        <p>&copy; 2025 Company | All rights reserved | By Rick</p>
+    </footer>
+</body>
+
+</html>
